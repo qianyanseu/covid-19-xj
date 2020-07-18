@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>新疆疫情态势</title>
+    <meta name="keywords" content="Covid-19, 新疆, 疫情, 新型冠状病毒" />
+    <meta name="description" content="新疆疫情态势" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <script src="./js/echarts.min.js"></script>
+</head>
+
+<body>
+    <div id="main" style="width: 100%; height: 500px;"></div>
+
+    <script>
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById("main"));
+
+        // 指定图表的配置项和数据
+        var option = {
+            xAxis: {
+                type: "category",
+                boundaryGap: false,
+                data: ["7.15", "7.16", "7.17", "7.18"],
+            },
+            yAxis: {
+                type: "value",
+            },
+            series: [{
+                data: [0, 1, 5, 16],
+                type: "line",
+                areaStyle: {},
+            }, ],
+        };
+
+        myChart.setOption(option);
+    </script>
+</body>
+
+</html>
