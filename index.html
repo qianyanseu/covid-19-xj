@@ -21,21 +21,71 @@
         var myChart = echarts.init(document.getElementById("main"));
 
         // 指定图表的配置项和数据
+        // var option = {
+        //     xAxis: {
+        //         type: "category",
+        //         boundaryGap: false,
+        //         data: ["7.13", "7.14", "7.15", "7.16", "7.17", "7.18", "7.19", "7.20", "7.21"],
+        //     },
+        //     yAxis: {
+        //         type: "value",
+        //     },
+        //     series: [{
+        //         data: [0, 0, 1, 5, 16, 13, 17, 8, 9],
+        //         // data2: [0, 0, 3, 8, 0, 18, 9, 5, 0]
+        //         type: "line",
+        //         areaStyle: {},
+        //     }, ],
+        // };
+
         var option = {
-            xAxis: {
+            title: {
+                text: "",
+            },
+            tooltip: {
+                trigger: "axis",
+                axisPointer: {
+                    type: "cross",
+                    label: {
+                        backgroundColor: "#6a7985",
+                    },
+                },
+            },
+            legend: {
+                data: ["确诊", "无症状感染"],
+            },
+            toolbox: {
+                feature: {
+                    saveAsImage: {},
+                },
+            },
+            grid: {
+                left: "3%",
+                right: "4%",
+                bottom: "3%",
+                containLabel: true,
+            },
+            xAxis: [{
                 type: "category",
                 boundaryGap: false,
-                data: ["7.13", "7.14", "7.15", "7.16", "7.17", "7.18", "7.19", "7.20"],
-            },
-            yAxis: {
-                type: "value",
-            },
-            series: [{
-                data: [0, 0, 1, 5, 16, 13, 17, 8],
-                // data2: [0, 0, 3, 8, 0, 18, 9, 5]
-                type: "line",
-                areaStyle: {},
+                data: ["7.13", "7.14", "7.15", "7.16", "7.17", "7.18", "7.19", "7.20", "7.21"],
             }, ],
+            yAxis: [{
+                type: "value",
+            }, ],
+            series: [{
+                name: "确诊",
+                type: "line",
+                stack: "总量",
+                areaStyle: {},
+                data: [0, 0, 1, 5, 16, 13, 17, 8, 9],
+            }, {
+                name: "无症状感染",
+                type: "line",
+                stack: "总量",
+                areaStyle: {},
+                data: [0, 0, 3, 8, 0, 18, 9, 5, 0],
+            }],
         };
 
         myChart.setOption(option);
